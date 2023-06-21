@@ -8,14 +8,10 @@ export const setUserData = async (req: Request, res: Response) => {
       name: 'test',
     };
 
-    try {
-      const docRef = firestore.collection('users').doc();
-      await docRef.set(data);
-      console.log('Document successfully written with ID:', docRef.id);
-    } catch (error) {
-      console.error('Error writing document:', error);
-    }
+    const docRef = firestore.collection('users').doc();
+    await docRef.set(data);
+    console.log('Document successfully written with ID:', docRef.id);
   } catch (error) {
-    console.error(error);
+    console.error('Error writing document:', error);
   }
 };
