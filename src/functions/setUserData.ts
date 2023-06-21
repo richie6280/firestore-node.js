@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { firestore } from '../../../shared/firestore';
+import { firestore } from '../shared/firestore';
 
 export const setUserData = async (req: Request, res: Response) => {
   try {

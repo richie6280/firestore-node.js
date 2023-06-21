@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { firestore } from '../../../shared/firestore';
+import { firestore } from '../shared/firestore';
 
 export const getUserData = async (req: Request, res: Response) => {
   const uid = req.query.uid || '';
