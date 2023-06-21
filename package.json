@@ -7,7 +7,9 @@
     "start": "node --max_old_space_size=2000 lib/public/api/src/index.js",
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
-    "deploy": "tsc && gcloud builds submit --tag gcr.io/richie-test/api && gcloud beta run deploy api  --image gcr.io/firestore/api  --platform managed --region asia-east1"
+    "deploy": "tsc && gcloud builds submit --tag gcr.io/richie-test/api && gcloud beta run deploy api  --image gcr.io/firestore/api  --platform managed --region asia-east1",
+    "docker-build": "docker build -t gcr.io/firebase-richie-test/test .",
+    "docker-push": "docker push gcr.io/firebase-richie-test/test"
   },
   "author": "richie",
   "license": "ISC",
