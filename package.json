@@ -1,0 +1,25 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "node.js",
+  "main": "node.js",
+  "scripts": {
+    "start": "node --max_old_space_size=2000 lib/public/api/src/index.js",
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc",
+    "deploy": "tsc && gcloud builds submit --tag gcr.io/richie-test/api && gcloud beta run deploy api  --image gcr.io/firestore/api  --platform managed --region asia-east1"
+  },
+  "author": "richie",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "firebase-admin": "^11.8.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/request-promise": "^4.1.48"
+  }
+}
