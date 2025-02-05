@@ -6,9 +6,11 @@ import { updateUserData } from './functions/updateUserData';
 const app = express();
 const router = express.Router();
 
+app.use(express.json()); // 解析 JSON body
+
 router.get('/getUserData', getUserData);
-router.get('/setUserData', setUserData);
-router.get('/updateUserData', updateUserData);
+router.post('/setUserData', setUserData);
+router.patch('/updateUserData', updateUserData);
 
 const port = 3000;
 
