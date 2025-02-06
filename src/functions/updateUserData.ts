@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import { firestore } from '../shared/firestore';
-import { DocumentReference } from 'firebase-admin/firestore';
 import { generateResponse } from '../shared/response';
 import { fetchUserData } from '../shared/fetchUserData';
 
@@ -23,8 +22,7 @@ export const updateUserData = async (req: Request, res: Response) => {
     const userData = await fetchUserData(uid as string);
 
     if (userData) {
-      const docRef: DocumentReference = firestore.collection('users').doc(uid);
-      await docRef.update(updateData);
+      await firestore.collection('users').doc(uid).update(updateData);
 
       return res
         .status(200)
